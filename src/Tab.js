@@ -52,6 +52,11 @@ export default class Tab extends React.PureComponent<Props> {
     handleTabChange(index);
   }
 
+  doubleClickTab() {
+    const {handleTabDoubleClick, index} = this.props;
+    handleTabDoubleClick(index);
+  }
+
   clickDelete(event: SyntheticEvent<HTMLButtonElement>) {
     event.stopPropagation(); // prevent trigger clickTab event.
     const {handleEdit, index} = this.props;
@@ -64,6 +69,7 @@ export default class Tab extends React.PureComponent<Props> {
     return (
       <TabComponent ref={node => this.__INTERNAL_NODE = node}
                     onClick={this.clickTab}
+                    onDoubleClick={this.doubleClickTab}
                     active={active}
                     vertical={vertical}
                     closable={closable}
