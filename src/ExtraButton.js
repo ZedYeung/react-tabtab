@@ -50,3 +50,7 @@ export default class ExtraButton extends React.PureComponent<Props> {
     );
   }
 }
+
+export {
+  Wrapper
+};
