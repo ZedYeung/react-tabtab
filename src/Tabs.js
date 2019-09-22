@@ -8,6 +8,7 @@ type Props = {
   showArrowButton?: 'auto' | boolean ,
   ExtraButton?: React.Node,
   onTabChange?: (event: any) => void,
+  onTabDoubleClick?: (event: any) => void,
   onTabSequenceChange?: (event: any) => void,
   onTabEdit?: (event: any) => void,
   customStyle?: {
@@ -38,6 +39,7 @@ export default class Tabs extends React.Component<Props, State> {
     showModalButton: 4,
     showArrowButton: 'auto',
     onTabChange: () => {},
+    onTabDoubleClick: () => {},
     onTabSequenceChange: () => {},
     customStyle: {
       TabList: null,
@@ -72,6 +74,16 @@ export default class Tabs extends React.Component<Props, State> {
     }
   }
 
+  handleTabDoubleClick(index: number) {
+    const {activeIndex, onTabDoubleClick} = this.props;
+    if (activeIndex !== 0 && !activeIndex) {
+      this.setState({activeIndex: index});
+    }
+    if (onTabDoubleClick) {
+      onTabDoubleClick(index);
+    }
+  }
+
   handleTabSequence({oldIndex, newIndex}: {oldIndex: number, newIndex: number}) {
     const {onTabSequenceChange} = this.props;
     if (onTabSequenceChange) {
@@ -91,6 +103,7 @@ export default class Tabs extends React.Component<Props, State> {
     const {activeIndex} = this.state;
     const props = {
       handleTabChange: this.handleTabChange,
+      handleTabDoubleClick: this.handleTabDoubleClick,
       handleTabSequence: this.handleTabSequence,
       handleEdit: this.handleEdit,
       activeIndex,
