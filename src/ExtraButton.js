@@ -2,7 +2,7 @@
 import * as React from 'react';
 import styled from 'styled-components';
 
-const Wrapper = styled.button`
+const ExtraButtonStyle = styled.button`
   float: right;
   border: 1px solid #eee;
   border-radius: 2px;
@@ -31,6 +31,7 @@ const Wrapper = styled.button`
 `;
 
 type Props = {
+  CustomTabStyle: () => void,
   onClick: (event: any) => void,
   disabled: boolean,
   children: React.Node
@@ -42,15 +43,16 @@ export default class ExtraButton extends React.PureComponent<Props> {
   }
 
   render() {
-    const {disabled, onClick} = this.props;
+    const {CustomExtraButtonStyle, disabled, onClick} = this.props;
+    const ExtraButtonComponent = CustomExtraButtonStyle || ExtraButtonStyle;
     return (
-      <Wrapper onClick={onClick} disabled={disabled}>
+      <ExtraButtonComponent onClick={onClick} disabled={disabled}>
         {this.props.children}          
-      </Wrapper>
+      </ExtraButtonComponent>
     );
   }
 }
 
 export {
-  Wrapper
+  ExtraButtonStyle
 };

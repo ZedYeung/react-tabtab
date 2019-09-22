@@ -7,9 +7,9 @@ import DragTab from './DragTab';
 import PanelList from './PanelList';
 import Panel, {PanelStyle} from './Panel';
 import AsyncPanel from './AsyncPanel';
-import ExtraButton from './ExtraButton';
+import ExtraButton, {ExtraButtonStyle} from './ExtraButton';
 
-const styled = {TabListStyle, ActionButtonStyle, TabStyle, PanelStyle};
+const styled = {TabListStyle, ActionButtonStyle, TabStyle, PanelStyle, ExtraButtonStyle};
 const defaultOutput = {
   Tabs,
   TabList,

@@ -2,8 +2,6 @@
 import * as React from 'react';
 import styled from 'styled-components';
 import CloseButton from './CloseButton';
-import {noop} from './useClick/utils';
-import {cancellablePromise} from './useClick/cancellable-promise';
 import pleaseStopTriggeringClicksOnDoubleClick from './useClick/please-stop-triggering-clicks-on-double-click'
 
 const TabStyle = styled.li`
