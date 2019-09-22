@@ -31,7 +31,7 @@ const ExtraButtonStyle = styled.button`
 `;
 
 type Props = {
-  CustomTabStyle: () => void,
+  CustomExtraButtonStyle: () => void,
   onClick: (event: any) => void,
   disabled: boolean,
   children: React.Node
