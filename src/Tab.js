@@ -2,6 +2,9 @@
 import * as React from 'react';
 import styled from 'styled-components';
 import CloseButton from './CloseButton';
+import {noop} from './useClick/utils';
+import {cancellablePromise} from './useClick/cancellable-promise';
+import pleaseStopTriggeringClicksOnDoubleClick from './useClick/please-stop-triggering-clicks-on-double-click'
 
 const TabStyle = styled.li`
   display: ${props => props.vertical ? 'block': 'inline-block'};
@@ -37,7 +40,7 @@ type Props = {
   children: React.Element<any>
 };
 
-export default class Tab extends React.PureComponent<Props> {
+class Tab extends React.PureComponent<Props> {
 
   __INTERNAL_NODE: React.ElementRef<any>;
 
@@ -85,6 +88,8 @@ export default class Tab extends React.PureComponent<Props> {
     )
   }
 }
+
+export default pleaseStopTriggeringClicksOnDoubleClick(Tab);
 
 Tab.displayName = 'Tab';
 
