@@ -23,7 +23,7 @@ const pleaseStopTriggeringClicksOnDoubleClick = WrappedComponent => {
     handleClick = () => {
       // create the cancelable promise and add it to
       // the pending promises queue
-      const waitForClick = cancelablePromise(delay(300));
+      const waitForClick = cancellablePromise(delay(300));
       this.appendPendingPromise(waitForClick);
 
       return waitForClick.promise
@@ -62,7 +62,7 @@ const pleaseStopTriggeringClicksOnDoubleClick = WrappedComponent => {
     }
   }
 
-  ComponetWrapper.displayName = `withClickPrevention(${WrappedComponent.displayName || WrappedComponent.name || 'Component'})`
+  ComponentWrapper.displayName = `withClickPrevention(${WrappedComponent.displayName || WrappedComponent.name || 'Component'})`
 
   ComponentWrapper.defaultProps = {
     onClick: noop,
