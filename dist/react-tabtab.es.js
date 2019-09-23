@@ -837,6 +837,25 @@ var delay = function delay(n) {
   });
 };
 
+var cancellablePromise = function cancellablePromise(promise) {
+  var isCanceled = false;
+
+  var wrappedPromise = new Promise(function (resolve, reject) {
+    promise.then(function (value) {
+      return isCanceled ? reject({ isCanceled: isCanceled, value: value }) : resolve(value);
+    }, function (error) {
+      return reject({ isCanceled: isCanceled, error: error });
+    });
+  });
+
+  return {
+    promise: wrappedPromise,
+    cancel: function cancel() {
+      return isCanceled = true;
+    }
+  };
+};
+
 var pleaseStopTriggeringClicksOnDoubleClick = function pleaseStopTriggeringClicksOnDoubleClick(WrappedComponent) {
   var ComponentWrapper = function (_Component) {
     inherits(ComponentWrapper, _Component);
@@ -865,7 +884,7 @@ var pleaseStopTriggeringClicksOnDoubleClick = function pleaseStopTriggeringClick
       }, _this.handleClick = function () {
         // create the cancelable promise and add it to
         // the pending promises queue
-        var waitForClick = cancelablePromise(delay(300));
+        var waitForClick = cancellablePromise(delay(300));
         _this.appendPendingPromise(waitForClick);
 
         return waitForClick.promise.then(function () {
@@ -908,7 +927,7 @@ var pleaseStopTriggeringClicksOnDoubleClick = function pleaseStopTriggeringClick
     return ComponentWrapper;
   }(Component);
 
-  ComponetWrapper.displayName = "withClickPrevention(" + (WrappedComponent.displayName || WrappedComponent.name || 'Component') + ")";
+  ComponentWrapper.displayName = "withClickPrevention(" + (WrappedComponent.displayName || WrappedComponent.name || 'Component') + ")";
 
   ComponentWrapper.defaultProps = {
     onClick: noop,
