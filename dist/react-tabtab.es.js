@@ -960,6 +960,7 @@ var Tab = function (_React$PureComponent) {
     var _this = possibleConstructorReturn(this, (Tab.__proto__ || Object.getPrototypeOf(Tab)).call(this, props));
 
     _this.clickTab = _this.clickTab.bind(_this);
+    _this.doubleClickTab = _this.doubleClickTab.bind(_this);
     _this.clickDelete = _this.clickDelete.bind(_this);
     return _this;
   }

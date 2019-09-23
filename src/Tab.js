@@ -45,6 +45,7 @@ class Tab extends React.PureComponent<Props> {
   constructor(props: Props) {
     super(props);
     (this: any).clickTab = this.clickTab.bind(this);
+    (this: any).doubleClickTab = this.doubleClickTab.bind(this);
     (this: any).clickDelete = this.clickDelete.bind(this);
   }
 
