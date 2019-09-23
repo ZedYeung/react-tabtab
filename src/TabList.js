@@ -98,6 +98,7 @@ type Props = {
   showArrowButton: 'auto' | boolean,
   showModalButton: number | boolean,
   handleTabChange: (event: any) => void,
+  handleTabDoubleClick: (event: any) => void,
   handleTabSequence: (event: any) => void,
   handleEdit: (event: any) => void,
   ExtraButton: React.Element<*>,
@@ -265,9 +266,10 @@ export default class TabListComponent extends React.Component<Props, State> {
   }
 
   renderTabs(options?: any = {}, isModal?: boolean) {
-    const {children, activeIndex, handleTabChange, handleEdit, customStyle} = this.props;
+    const {children, activeIndex, handleTabChange, handleTabDoubleClick, handleEdit, customStyle} = this.props;
     const props = {
       handleTabChange,
+      handleTabDoubleClick,
       handleEdit,
       //$FlowFixMe
       CustomTabStyle: customStyle.Tab
@@ -318,6 +320,7 @@ export default class TabListComponent extends React.Component<Props, State> {
       customStyle,
       activeIndex,
       handleTabChange,
+      handleTabDoubleClick,
       handleTabSequence,
       ExtraButton
     } = this.props;
@@ -351,6 +354,7 @@ export default class TabListComponent extends React.Component<Props, State> {
           <TabModal closeModal={this.toggleModal.bind(this, false)}
                     handleTabSequence={handleTabSequence}
                     handleTabChange={handleTabChange}
+                    handleTabDoubleClick={handleTabDoubleClick}
                     activeIndex={activeIndex}>
             {this.renderTabs({vertical: true}, true)}
           </TabModal>

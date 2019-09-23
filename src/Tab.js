@@ -30,6 +30,7 @@ const TabText = styled.span`
 type Props = {
   CustomTabStyle: () => void,
   handleTabChange: (event: any) => void,
+  handleTabDoubleClick: (event: any) => void,
   handleEdit: (event: any) => void,
   index: number,
   active: boolean,

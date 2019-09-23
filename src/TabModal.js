@@ -8,6 +8,7 @@ type Props = {
   closeModal: (event: any) => void,
   handleTabSequence: (event: any) => void,
   handleTabChange: (event: any) => void,
+  handleTabDoubleClick: (event: any) => void,
   activeIndex: number,
   children: React.Node
 };
@@ -44,6 +45,7 @@ export default class TabModal extends React.Component<Props> {
               closeBtn={true}>
         <ModalTabListWrapper handleTabSequence={this.props.handleTabSequence}
                              handleTabChange={this.props.handleTabChange}
+                             handleTabDoubleClick={this.props.handleTabDoubleClick}
                              activeIndex={this.props.activeIndex}>
           {this.props.children}
         </ModalTabListWrapper>

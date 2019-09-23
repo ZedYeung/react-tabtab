@@ -433,6 +433,7 @@ var TabModal = function (_React$Component) {
           ModalTabListWrapper,
           { handleTabSequence: this.props.handleTabSequence,
             handleTabChange: this.props.handleTabChange,
+            handleTabDoubleClick: this.props.handleTabDoubleClick,
             activeIndex: this.props.activeIndex },
           this.props.children
         )
@@ -674,11 +675,13 @@ var TabListComponent = function (_React$Component) {
           children = _props.children,
           activeIndex = _props.activeIndex,
           handleTabChange = _props.handleTabChange,
+          handleTabDoubleClick = _props.handleTabDoubleClick,
           handleEdit = _props.handleEdit,
           customStyle = _props.customStyle;
 
       var props = {
         handleTabChange: handleTabChange,
+        handleTabDoubleClick: handleTabDoubleClick,
         handleEdit: handleEdit,
         //$FlowFixMe
         CustomTabStyle: customStyle.Tab
@@ -746,6 +749,7 @@ var TabListComponent = function (_React$Component) {
           customStyle = _props2.customStyle,
           activeIndex = _props2.activeIndex,
           handleTabChange = _props2.handleTabChange,
+          handleTabDoubleClick = _props2.handleTabDoubleClick,
           handleTabSequence = _props2.handleTabSequence,
           ExtraButton = _props2.ExtraButton;
       var modalIsOpen = this.state.modalIsOpen;
@@ -793,6 +797,7 @@ var TabListComponent = function (_React$Component) {
           { closeModal: this.toggleModal.bind(this, false),
             handleTabSequence: handleTabSequence,
             handleTabChange: handleTabChange,
+            handleTabDoubleClick: handleTabDoubleClick,
             activeIndex: activeIndex },
           this.renderTabs({ vertical: true }, true)
         ) : null

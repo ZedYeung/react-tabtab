@@ -7,7 +7,9 @@ test('render Panel', () => {
   const component = shallow(
     <TabModal closeModal={noop}
               handleTabSequence={noop}
-              handleTabChange={noop}>
+              handleTabChange={noop}
+              handleTabDoubleClick={noop}
+    >
       <span>fake child</span>
     </TabModal>
   );
