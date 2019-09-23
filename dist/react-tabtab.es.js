@@ -138,6 +138,7 @@ var Tabs = function (_React$Component) {
     var _this = possibleConstructorReturn(this, (Tabs.__proto__ || Object.getPrototypeOf(Tabs)).call(this, props));
 
     _this.handleTabChange = _this.handleTabChange.bind(_this);
+    _this.handleTabDoubleClick = _this.handleTabDoubleClick.bind(_this);
     _this.handleTabSequence = _this.handleTabSequence.bind(_this);
     _this.handleEdit = _this.handleEdit.bind(_this);
     _this.state = {

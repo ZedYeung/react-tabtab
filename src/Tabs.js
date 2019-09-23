@@ -28,6 +28,7 @@ export default class Tabs extends React.Component<Props, State> {
   constructor(props: Props) {
     super(props);
     (this: any).handleTabChange = this.handleTabChange.bind(this);
+    (this: any).handleTabDoubleClick = this.handleTabDoubleClick.bind(this);
     (this: any).handleTabSequence = this.handleTabSequence.bind(this);
     (this: any).handleEdit = this.handleEdit.bind(this);
     (this: any).state = {
