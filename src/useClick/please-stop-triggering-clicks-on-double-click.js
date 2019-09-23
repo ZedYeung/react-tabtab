@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import { delay, cancelablePromise, noop } from "./utils";
+import { delay, noop } from "./utils";
+import {cancellablePromise} from './cancellable-promise';
 
 const pleaseStopTriggeringClicksOnDoubleClick = WrappedComponent => {
   class ComponentWrapper extends Component {
