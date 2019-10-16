@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { delay, noop } from "./utils";
 import {cancellablePromise} from './cancellable-promise';
 
+// https://medium.com/trabe/prevent-click-events-on-double-click-with-react-with-and-without-hooks-6bf3697abc40
 const pleaseStopTriggeringClicksOnDoubleClick = WrappedComponent => {
   class ComponentWrapper extends Component {
     componentWillUnmount() {
